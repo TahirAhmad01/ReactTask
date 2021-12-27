@@ -1,0 +1,5 @@
+.content {
+    margin-left: 400px;
+    top: 0;
+    width: calc(100% - 400px);
+}
