@@ -5,7 +5,7 @@ export default function Feedback({ className }) {
         <div className={className}>
             <div className={classes.title}>Have a Feedback?</div>
             <div className={classes.button}>
-                <button>We’re Listening!</button>
+                <button>We're Listening!</button>
             </div>
         </div>
     );

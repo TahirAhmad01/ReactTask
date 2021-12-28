@@ -6,6 +6,8 @@
 
 .button {
     margin: 15px 16px;
+    box-shadow: 0px 18px 88px -4px #18274b24 inset;
+    box-shadow: 0px 8px 28px -6px #18274b1f inset;
 }
 
 .button button {
@@ -19,4 +21,5 @@
     -o-border-radius: 8px;
     border: none;
     padding: 18px 15px;
+    font-weight: 700;
 }

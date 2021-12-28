@@ -24,7 +24,11 @@ export default function Listviews() {
     if (error) {
         return <div>Error: {error.message}</div>;
     } else if (!loading) {
-        return <div>Loading...</div>;
+        return (
+            <div className="preloader">
+                <div className="loader"></div>
+            </div>
+        );
     } else {
         return (
             <ul>
