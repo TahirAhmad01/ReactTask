@@ -1,0 +1,17 @@
+.IcoAlign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+    box-shadow: 0px 18px 88px -4px #18274b24 inset;
+    box-shadow: 0px 8px 28px -6px #18274b1f inset;
+    background-color: #ebf2f7;
+}
+
+.IcoAlign.active {
+    background-color: #a3ffd3 !important;
+}
+
+.IcoAlign span {
+    font-size: 35px;
+}

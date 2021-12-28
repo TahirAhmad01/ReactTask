@@ -1,25 +1,8 @@
-import { useEffect, useState } from "react";
+import useFetch from "../../hooks/usseFatch";
 import ListView from "./listview";
 
 export default function Listviews() {
-    const [error, setError] = useState(null);
-    const [loading, setIsLoaded] = useState(false);
-    const [Api, setApi] = useState([]);
-
-    useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/posts")
-            .then((res) => res.json())
-            .then(
-                (result) => {
-                    setIsLoaded(true);
-                    setApi(result);
-                },
-                (error) => {
-                    setIsLoaded(true);
-                    setError(error);
-                }
-            );
-    }, []);
+    const { loading, error, Api } = useFetch();
 
     if (error) {
         return <div>Error: {error.message}</div>;
@@ -31,7 +14,7 @@ export default function Listviews() {
         );
     } else {
         return (
-            <ul>
+            <>
                 {Api.map((item) => (
                     <ListView
                         key={item.id}
@@ -39,7 +22,7 @@ export default function Listviews() {
                         body={item.body}
                     />
                 ))}
-            </ul>
+            </>
         );
     }
 }

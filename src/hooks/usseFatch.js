@@ -1,28 +1,24 @@
 import { useEffect, useState } from "react";
 
-export default function useFetch(url, method) {
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+export default function useFetch() {
+    const [error, setError] = useState(null);
+    const [loading, setIsLoaded] = useState(false);
     const [Api, setApi] = useState([]);
 
     useEffect(() => {
-        async function requestFetch() {
-            try {
-                const response = await fetch(url, {
-                    method: method || "GET",
-                });
-                setApi(await response.json());
-                setLoading(true);
-                setError(false);
-                setLoading(false);
-            } catch (err) {
-                console.log(err);
-                setLoading(false);
-                setError(true);
-            }
-        }
-        requestFetch();
-    }, [method, url]);
+        fetch("https://jsonplaceholder.typicode.com/posts")
+            .then((res) => res.json())
+            .then(
+                (result) => {
+                    setIsLoaded(true);
+                    setApi(result);
+                },
+                (error) => {
+                    setIsLoaded(true);
+                    setError(error);
+                }
+            );
+    }, []);
 
     return {
         loading,
